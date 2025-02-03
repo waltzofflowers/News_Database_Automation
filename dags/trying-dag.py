@@ -8,13 +8,12 @@ from sqlalchemy import create_engine
 
 ## CONNECTION ESTABLISHMENT
 
-# Establish a connection to the SQL Server database
 server = 'server'
 database = 'database'
 username = 'username'
 password = 'password'
 driver = 'driver'
-port = 1433 # postgresql common port change it for yourselves
+port = your_port
 
 def extract(**kwargs):
     # DATABASE CONNECTION
