@@ -48,8 +48,11 @@ This project automates the collection, transformation, and storage of news data 
     ```
 
 2. **Build and Start Docker Containers**:
+
+    - (-d) stands for work at backround so we can free up our terminal for other uses as well.
+
     ```bash
-    docker-compose up --build
+    docker-compose up -d --build
     ```
 
 3. **Generate Fernet Key**:
