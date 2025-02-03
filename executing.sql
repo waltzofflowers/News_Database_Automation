@@ -1,0 +1,2 @@
+SELECT DISTINCT * INTO News_Final
+FROM News;

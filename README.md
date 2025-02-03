@@ -9,6 +9,7 @@ This project automates the collection, transformation, and storage of news data 
   - [1. Data Retrieval and Transformation](#1-data-retrieval-and-transformation)
   - [2. Workflow Automation](#2-workflow-automation)
   - [3. Encryption](#3-encryption)
+  - [4. Executing SQL](#4-executing-sql)
 - [Installation and Setup](#installation-and-setup)
 - [Usage](#usage)
 - [Contributing](#contributing)
@@ -40,31 +41,12 @@ This project automates the collection, transformation, and storage of news data 
 - **fernet-finder.ipynb**: Jupyter notebook for generating Fernet keys for encryption during data transmission.
   - Users need to execute this notebook to generate their own Fernet key and paste it into the `airflow.env` file.
 
-## Installation and Setup
-1. **Clone the Repository**:
-    ```bash
-    git clone <your-repository-url>
-    cd <your-repository-directory>
-    ```
-
-2. **Build and Start Docker Containers**:
-
-    - (-d) stands for work at backround so we can free up our terminal for other uses as well.
-
-    ```bash
-    docker-compose up -d --build
-    ```
-
-3. **Generate Fernet Key**:
-    - Open and run the `fernet-finder.ipynb` notebook to generate a Fernet key.
-    - Copy the generated key and paste it into the `airflow.env` file under the `FERNET_KEY` variable.
-    - This is just an experiment for serious development purposes its better to do that for getting rid of any data leakage.
-
-4. **Run the Initial Data Load**:
-    - **Important**: Execute `trying.ipynb` 1 day before automating it with the DAG to avoid overwriting the same data in the database.
-
-5. **Automate the Pipeline**:
-    - Use the Airflow UI to trigger the initial data load and monitor the daily updates.
+### 4. Executing SQL
+- **executing.sql**: SQL script that removes overlapping data and inserts only distinct entries into the final table.
+  ```sql
+  SELECT DISTINCT * INTO News_Final
+  FROM News;
+  ```
 
 ## Usage
 - Access the Airflow webserver at `http://localhost:8080` to manage and monitor workflows.
