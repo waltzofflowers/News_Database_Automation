@@ -22,7 +22,7 @@ def extract(**kwargs):
     # conn = pyodbc.connect(conn_str)
 
     # API Key
-    newsapi = NewsApiClient(api_key='bd2b8887d4a84984b5436bd30d7a0a37')
+    newsapi = NewsApiClient(api_key='your_api_key')
 
     # Calculate the date range for the previous day
     today = datetime.today().date()
